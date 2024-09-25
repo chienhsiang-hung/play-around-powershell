@@ -20,7 +20,7 @@ $form.Controls.Add($okButton)
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(10, 20)
 $label.Size = New-Object System.Drawing.Size(280, 40)
-$label.Text = 'This will Keep Screen Active by pressing `F13` every 1 min until you click the OK below .'
+$label.Text = 'This will Keep Screen Active by pressing `F13` every 1 min until you click the OK below.'
 $form.Controls.Add($label)
 
 # initialize the formClosed flag
