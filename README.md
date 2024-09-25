@@ -6,7 +6,9 @@
 How to perform a PowerShell version check: `$PSVersionTable`
 
 ## Quick Start
-1. `git clone https://github.com/chienhsiang-hung/play-around-powershell.git`
-2. ```ps
+1. ```git
+   git clone https://github.com/chienhsiang-hung/play-around-powershell.git
+   ```
+3. ```powershell
    .\KeepScreenActive.ps1
    ```
