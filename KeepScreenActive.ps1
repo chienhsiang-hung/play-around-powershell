@@ -20,11 +20,11 @@ $form.Controls.Add($okButton)
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(10, 20)
 $label.Size = New-Object System.Drawing.Size(280, 40)
-$label.Text = 'This will Keep Screen Active until you click the OK below by pressing `F13` every 1 min.'
+$label.Text = 'This will Keep Screen Active until you click the OK below by pressing `F13` every 1 sec.'
 $form.Controls.Add($label)
 
-# handle the form closing event
-$form.Add_FormClosing({
+# handle the form closed event
+$form.Add_FormClosed({
     Write-Host "Keep Screen Active ended!"
     exit
 })
@@ -34,15 +34,12 @@ $form.Topmost = $true
 # show
 $result = $form.ShowDialog()
 
+
 # creating object to press keyboard
 $WShell = New-Object -ComObject WScript.Shell
 # start looping
-while (
-    ($result -ne [System.Windows.Forms.DialogResult]::OK)`
-    -and`
-    ($result -ne [System.Windows.Forms.DialogResult]::OK)
-) {
+while ($result -ne [System.Windows.Forms.DialogResult]::OK -and -not $form.IsDisposed) {
     $WShell.SendKeys("{F13}")
-    Start-Sleep -Seconds 60
+    Start-Sleep -Seconds 1
 }
 'Keep Screen Active ended!'
